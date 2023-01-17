@@ -81,12 +81,13 @@ export class EmployeesComponent implements OnInit {
 
       maxValue = maxValue + 1;
       this.employee.id = maxValue;
-      this.employee.name = this.form.value.name;
-      this.employee.last_name = this.form.value.last_name;
+      this.employee.last_name = this.form.value.name;
+      this.employee.name = this.form.value.last_name;
       this.employee.birthday = this.form.value.birthday;
       this.employeeService.saveInfoEmployee(this.employee).subscribe(
         response=>{
           console.log(response);
+          this.getUsers();
           this.form.reset();
   
         },

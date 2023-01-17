@@ -6,6 +6,7 @@ import{ HttpClientModule} from '@angular/common/http';
 import { PaginationPipe } from '../pipes/pagination.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GroupsComponent } from './groups/groups.component';
+import { GroupSearchPipe } from '../pipes/group-search.pipe';
 
 
 
@@ -15,7 +16,8 @@ import { GroupsComponent } from './groups/groups.component';
     HomeComponent,
     EmployeesComponent,
     PaginationPipe,
-    GroupsComponent
+    GroupsComponent,
+    GroupSearchPipe
   ],
   imports: [
     CommonModule,

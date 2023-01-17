@@ -12,4 +12,7 @@ export class GroupsService {
     return this.http.get('https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/groups/uriel_davila');
 
   }
+  public getGroupbyId(id:number):Observable<any>{
+    return this.http.get(`https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/:tu_nombre/getByGroup?id=${id}`);
+  }
 }
