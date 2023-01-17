@@ -13,4 +13,4 @@ Run the app(ng serve -o)
 ##You are gonna see this image
 
 
-![imageApp](https://user-images.githubusercontent.com/32989826/212797649-3fe1186d-abbf-47d7-b7de-973695aa6c7b.png)
+
