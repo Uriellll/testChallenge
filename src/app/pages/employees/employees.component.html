@@ -1,0 +1,67 @@
+<h1>Empleados</h1>
+<div class="row">
+    <div class="d-flex my-3">        
+        <input type="text" class="form-control" placeholder="Buscar" #txtSearch (keyup)="onSearch(txtSearch.value)">
+        <button class="btn btn-outline-primary mx-2" type="submit">Buscar</button>
+      </div>
+    <table class="table table-info table-striped">
+        <thead class="">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th >Fecha de nacimiento</th>
+               
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees | pagination:page:search">
+                <td class="">{{employee.id}}</td>
+                <td class="">{{employee.last_name}}</td>
+                <td class="">{{employee.name}}</td>
+                <td class="">{{employee.birthday}}</td>
+                
+                
+            </tr>
+            
+          </tbody>
+    </table>
+    <div class="buttons" style="text-align: right;">
+        <button class="btn btn-primary mx-2" (click)="prevPage()">Anterior</button>
+        <button class="btn btn-primary" (click)="nextPage()" [disabled] ="(employees | pagination:page:search).length === 0">Siguiente</button>
+    </div> 
+</div>
+<div class="row">
+    <h3>Formulario</h3>
+    <form [formGroup]="form" (ngSubmit)="saveForm()" >
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="name" id="name" [class.is-invalid]="nameInvalid">
+          <small *ngIf="nameInvalid" class="text-danger">
+            El campo es requerido
+
+          </small>
+         
+        </div>
+        <div class="mb-3">
+          <label for="last_name" class="form-label">Apellidos</label>
+          <input type="text" class="form-control" formControlName="last_name" id="last_name" [class.is-invalid]="lastInvalid">
+          <small *ngIf="lastInvalid" class="text-danger">
+            El campo es requerido
+
+          </small>
+        </div>
+        <div class="mb-3">
+            <label for="birthday" class="form-label">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="birthday" formControlName="birthday" [class.is-invalid]="birthdayInvalid">
+            <small *ngIf="birthdayInvalid" class="text-danger">
+                El campo es requerido
+    
+              </small>
+          </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+      </form>
+</div>
+
